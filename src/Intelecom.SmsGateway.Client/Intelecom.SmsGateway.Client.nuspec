@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Intelecom.SmsGateway.Client</id>
+    <version>$version$</version>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>    
+    <copyright>Copyright Intelecom Group AS 2015</copyright>
+    <tags>Intelecom SMS</tags>
+    <projectUrl>https://github.com/Intelecom/smsgw-client-dotnet</projectUrl>
+    <licenseUrl>https://raw.githubusercontent.com/Intelecom/smsgw-client-dotnet/master/LICENSE</licenseUrl>
+  </metadata>
+</package>
