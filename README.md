@@ -1,3 +1,5 @@
+AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/tpuar7olx447gjqu/branch/master?svg=true)](https://ci.appveyor.com/project/trydis/smsgw-client-dotnet/branch/master)
+
 ## PCL targets ##
 
 - .NET 4.5
