@@ -1,10 +1,12 @@
 version: '{build}'
-pull_requests:
-  do_not_increment_build_number: true
 nuget:
   project_feed: true
 build_script:
-- cmd: msbuild build\build.proj /t:CreateNuGetPackage
+- cmd: dotnet restore src
+- cmd: dotnet test src\Intelecom.SmsGateway.Client.Tests -c Release
+- cmd: dotnet pack src\Intelecom.SmsGateway.Client -c Release -o artifacts\nuget
+test: off
 artifacts:
 - path: artifacts\nuget\*.nupkg
-  name: NuGet packagedeploy: off
+  name: NuGet package
+deploy: off

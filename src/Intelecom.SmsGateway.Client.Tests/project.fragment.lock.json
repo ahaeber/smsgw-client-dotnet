@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "exports": {
+    "Intelecom.SmsGateway.Client/1.0.0": {
+      "type": "project",
+      "framework": ".NETStandard,Version=v1.1",
+      "compile": {
+        "bin/Debug/Intelecom.SmsGateway.Client.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/Intelecom.SmsGateway.Client.dll": {}
+      },
+      "contentFiles": {
+        "bin/Debug/Intelecom.SmsGateway.Client.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
+      }
+    }
+  }
+}

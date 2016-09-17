@@ -1,0 +1,24 @@
+﻿{
+    "version": "2.0.0-dev01",
+    "authors": [ "Intelecom Group AS" ],
+    "description": "Client library for the Intelecom Group AS SMS Gateway.",
+    "dependencies": {
+        "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+        "NETStandard.Library": "1.6.0",
+        "Newtonsoft.Json": "9.0.1"
+    },
+    "frameworks": {
+        "netstandard1.1": {}
+    },
+    "packOptions": {
+        "tags": [ "Intelecom", "SMS" ],
+        "owners": [ "Intelecom Group AS" ],
+        "projectUrl": "https://github.com/Intelecom/smsgw-client-dotnet",
+        "licenseUrl": "https://raw.githubusercontent.com/Intelecom/smsgw-client-dotnet/master/LICENSE",
+        "requireLicenseAcceptance": false,
+        "repository": {
+            "type": "git",
+            "url": "https://github.com/Intelecom/smsgw-client-dotnet"
+        }
+    }
+}

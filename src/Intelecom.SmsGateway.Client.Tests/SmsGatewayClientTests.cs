@@ -2,14 +2,14 @@
 using Intelecom.SmsGateway.Client.Exceptions;
 using Intelecom.SmsGateway.Client.Models;
 using Intelecom.SmsGateway.Client.Tests.Helpers;
-using NUnit.Framework;
-using Should;
+using Shouldly;
 using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace Intelecom.SmsGateway.Client.Tests
 {
@@ -26,34 +26,34 @@ namespace Intelecom.SmsGateway.Client.Tests
 
         public class Ctor : SmsGatewayClientTests
         {
-            [Test]
+            [Fact]
             public void WhenBaseAddressIsNull_ShouldThrowArgumentNullException()
             {
                 Assert.Throws<ArgumentNullException>(() => CreateClient(null, _dummyCredentials));
             }
 
-            [Test]
+            [Fact]
             public void WhenBaseAddressIsMalformed_ShouldThrowUriFormatException()
             {
                 Assert.Throws<UriFormatException>(() => CreateClient("foo", _dummyCredentials));
             }
 
-            [Test]
+            [Fact]
             public void WhenCredentialsIsNull_ShouldThrowArgumentNullException()
             {
                 Assert.Throws<ArgumentNullException>(() => CreateClient(DummyBaseAddress, null));
             }
 
-            [Test]
+            [Fact]
             public void WhenArgumentsAreValid_ShouldNotThrowException()
             {
-                Assert.DoesNotThrow(() => CreateClient(DummyBaseAddress, _dummyCredentials));
+                CreateClient(DummyBaseAddress, _dummyCredentials);
             }
         }
 
         public class SendAsync : SmsGatewayClientTests
         {
-            [Test]
+            [Fact]
             public async Task WhenGatewayReturnsOkResponse_ShouldReceiveMessageStatus()
             {
                 _requestHandler = (message, token) =>
@@ -70,17 +70,17 @@ namespace Intelecom.SmsGateway.Client.Tests
                 var smsGatewayResponse = await client.SendAsync(new Message());
                 var messageStatus = smsGatewayResponse.MessageStatus.First();
 
-                messageStatus.MessageId.ShouldEqual("123");
-                messageStatus.StatusCode.ShouldEqual(SmsGatewayStatusCode.MessageDeliveredOk);
+                messageStatus.MessageId.ShouldBe("123");
+                messageStatus.StatusCode.ShouldBe(SmsGatewayStatusCode.MessageDeliveredOk);
             }
 
-            [Test]
-            public void WhenGatewayReturnsInternalServerErrorResponse_ShouldThrowSmsGatewayException()
+            [Fact]
+            public async Task WhenGatewayReturnsInternalServerErrorResponse_ShouldThrowSmsGatewayException()
             {
                 _requestHandler = (message, token) => Task.FromResult(new HttpResponseMessage(HttpStatusCode.InternalServerError));
                 var client = CreateClient(DummyBaseAddress, _dummyCredentials);
 
-                Assert.Throws<SmsGatewayException>(async () => await client.SendAsync(new Message()));
+                await Assert.ThrowsAsync<SmsGatewayException>(() => client.SendAsync(new Message()));
             }
         }
     }
