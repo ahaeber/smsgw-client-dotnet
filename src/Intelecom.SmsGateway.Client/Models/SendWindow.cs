@@ -18,7 +18,7 @@ namespace Intelecom.SmsGateway.Client.Models
         /// <summary>
         /// The time of day to start sending the message.
         /// </summary>
-        [JsonConverter(typeof(SmsGatewayDateTimeConverter), "HH.mm.ss")]
+        [JsonConverter(typeof(SmsGatewayDateTimeConverter), "HH:mm:ss")]
         public DateTime? StartTime { get; set; }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Intelecom.SmsGateway.Client.Models
         /// <summary>
         /// The time to stop sending the message if the message is still enqueued.
         /// </summary>
-        [JsonConverter(typeof(SmsGatewayDateTimeConverter), "HH.mm.ss")]
+        [JsonConverter(typeof(SmsGatewayDateTimeConverter), "HH:mm:ss")]
         public DateTime? StopTime { get; set; }
 
         /// <summary>
