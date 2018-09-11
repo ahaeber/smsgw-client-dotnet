@@ -9,6 +9,11 @@ namespace Intelecom.SmsGateway.Client.Models
     public class SmsGatewayResponse
     {
         /// <summary>
+        /// A unique system generated reference to the batch
+        /// </summary>
+        public string BatchReference { get; set; }
+
+        /// <summary>
         /// The status of each message sent to the gateway.
         /// </summary>
         public MessageStatus[] MessageStatus { get; set; }
@@ -19,6 +24,6 @@ namespace Intelecom.SmsGateway.Client.Models
         /// <returns>
         /// A string that represents the current object.
         /// </returns>
-        public override string ToString() => $"MessageStatus: {string.Join(" | ", MessageStatus.Select(status => status))}";
+        public override string ToString() => $"BatchReferece: {BatchReference}. MessageStatus: {string.Join(" | ", MessageStatus.Select(status => status))}";
     }
 }
